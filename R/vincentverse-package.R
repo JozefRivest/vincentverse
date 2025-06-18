@@ -1,91 +1,24 @@
 #' @keywords internal
 "_PACKAGE"
 
-#' @export
-
-core <- c(
-  "marginaleffects",
-  "modelsummary",
-  "tinytable",
-  "countrycode",
-  "WDI",
-  "violets",
-  "regrets",
-  "Rdatasets"
-)
-
-#' Install missing vincentverse packages
-#' @export
-vincentverse_install <- function() {
-  missing <- core[!core %in% installed.packages()[, "Package"]]
-  if (length(missing) > 0) {
-    message("Installing missing packages: ", paste(missing, collapse = ", "))
-    install.packages(missing)
-  } else {
-    message("All vincentverse packages are already installed")
-  }
+# Suppress R CMD check note
+# Namespace in Imports field not imported from: PKG
+#   All declared Imports should be used.
+ignore_unused_imports <- function() {
+  modelsummary::modelsummary
+  marginaleffects::marginaleffects
+  tinytable::tt
+  countrycode::countrycode
+  WDI::WDI
+  violets::violets
+  regrets::regrets
+  Rdatasets::Rdatasets
+  cli::cli
 }
 
-core_unloaded <- function() {
-  search <- paste0("package:", core)
-  core[!search %in% search()]
-}
-
-same_library <- function(pkg) {
-  loc <- if (pkg %in% loadedNamespaces()) dirname(getNamespaceInfo(pkg, "path"))
-  library(pkg, lib.loc = loc, character.only = TRUE, warn.conflicts = FALSE)
-}
-
-vincentverse_attach <- function() {
-  to_load <- core_unloaded()
-
-  suppressPackageStartupMessages(
-    lapply(to_load, same_library)
+release_bullets <- function() {
+  c(
+    '`usethis::use_latest_dependencies(TRUE, "CRAN")`',
+    "`tidyverse_dependency_dissuade()`"
   )
-
-  invisible(to_load)
-}
-
-vincentverse_attach_message <- function(to_load) {
-  if (length(to_load) == 0) {
-    return(NULL)
-  }
-
-  header <- cli::rule(
-    left = cli::style_bold("Attaching core vincentverse packages"),
-    right = paste0("vincentverse", package_version_h("vincentverse"))
-  )
-
-  to_load <- sort(to_load)
-  versions <- vapply(to_load, package_version_h, character(1))
-
-  packages <- paste0(
-    cli::col_green(cli::symbol$tick), " ", cli::col_blue(format(to_load)), " ",
-    cli::ansi_align(versions, max(cli::ansi_nchar(versions)))
-  )
-
-  if (length(packages) %% 2 == 1) {
-    packages <- append(packages, " ")
-  }
-  col1 <- seq_len(length(packages) / 2)
-  info <- paste0(packages[col1], "   ", packages[-col1])
-
-  paste0(header, "\n", paste(info, collapse = "\n"))
-}
-
-package_version_h <- function(pkg) {
-  highlight_version(utils::packageVersion(pkg))
-}
-
-highlight_version <- function(x) {
-  x <- as.character(x)
-
-  is_dev <- function(x) {
-    x <- suppressWarnings(as.numeric(x))
-    !is.na(x) & x >= 9000
-  }
-
-  pieces <- strsplit(x, ".", fixed = TRUE)
-  pieces <- lapply(pieces, function(x) ifelse(is_dev(x), cli::col_red(x), x))
-  vapply(pieces, paste, collapse = ".", FUN.VALUE = character(x))
 }
