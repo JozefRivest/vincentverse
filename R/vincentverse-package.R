@@ -9,7 +9,6 @@ core <- c(
   "tinytable",
   "countrycode",
   "WDI",
-  "marginsplot",
   "violets",
   "regrets",
   "Rdatasets",
