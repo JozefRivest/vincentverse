@@ -1,6 +1,7 @@
 #' @keywords internal
 "_PACKAGE"
 
+#' @export
 
 core <- c(
   "marginaleffects",
