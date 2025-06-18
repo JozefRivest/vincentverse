@@ -11,7 +11,7 @@ core <- c(
   "WDI",
   "violets",
   "regrets",
-  "Rdatasets",
+  "Rdatasets"
 )
 
 #' Install missing vincentverse packages
