@@ -89,10 +89,3 @@ highlight_version <- function(x) {
   pieces <- lapply(pieces, function(x) ifelse(is_dev(x), cli::col_red(x), x))
   vapply(pieces, paste, collapse = ".", FUN.VALUE = character(x))
 }
-
-# .onAttach <- function(libname, pkgname) {
-#   to_load <- vincentverse_attach()
-#   if (length(to_load) > 0) {
-#     packageStartupMessage(vincentverse_attach_message(to_load))
-#   }
-# }
