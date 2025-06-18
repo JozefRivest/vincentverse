@@ -1,13 +1,14 @@
 # vincentverse
 
-You are also a fan on [Vincent
-Arel-Bundock's](https://github.com/vincentarelbundock) packages? You would like
-to attached them easily everytime you start a new session? The `vincentverse`
-is all you need! Similarly to the great `tidyverse`, you can now have all the
-packages from VAB at once! 
+Are you also a fan of [Vincent
+Arel-Bundock's](https://github.com/vincentarelbundock) packages? Would you like
+to load them easily every time you start a new session? The `vincentverse` is
+all you need! Just like the great `tidyverse`, you can now load all of VAB’s
+packages at once.
 
-The package has been made for fun, so it is not officially avaible through CRAN.
-Yet, you can easily use this function with the following code:
+This package was created for fun, replicating the structure of the `tidyverse`.
+For that reason, it won't be available on CRAN. However, you can easily use it
+with the following code:
 
 ```r
 # install from github
