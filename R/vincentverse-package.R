@@ -12,13 +12,12 @@ core <- c(
   "violets",
   "regrets",
   "Rdatasets",
-  "Rdatasetspkg"
 )
 
 #' Install missing vincentverse packages
 #' @export
 vincentverse_install <- function() {
-  missing <- core[!core %in% installed.packages()[,"Package"]]
+  missing <- core[!core %in% installed.packages()[, "Package"]]
   if (length(missing) > 0) {
     message("Installing missing packages: ", paste(missing, collapse = ", "))
     install.packages(missing)
