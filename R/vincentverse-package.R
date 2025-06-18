@@ -90,9 +90,9 @@ highlight_version <- function(x) {
   vapply(pieces, paste, collapse = ".", FUN.VALUE = character(x))
 }
 
-.onAttach <- function(libname, pkgname) {
-  to_load <- vincentverse_attach()
-  if (length(to_load) > 0) {
-    packageStartupMessage(vincentverse_attach_message(to_load))
-  }
-}
+# .onAttach <- function(libname, pkgname) {
+#   to_load <- vincentverse_attach()
+#   if (length(to_load) > 0) {
+#     packageStartupMessage(vincentverse_attach_message(to_load))
+#   }
+# }
