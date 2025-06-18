@@ -78,7 +78,6 @@ print.vincentverse_conflicts <- function(x, ..., startup = FALSE) {
   invisible(x)
 }
 
-# #' @importFrom magrittr |>
 confirm_conflict <- function(packages, name) {
   # Only look at functions
   objs <- packages |>
