@@ -63,7 +63,7 @@ vincentverse_attach_message <- function(to_load) {
   paste0(header, "\n", paste(info, collapse = "\n"))
 }
 
-package_versions_h <- function(pkg) {
+package_version_h <- function(pkg) {
   highlight_version(utils::packageVersion(pkg))
 }
 
