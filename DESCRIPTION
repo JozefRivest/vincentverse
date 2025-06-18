@@ -25,7 +25,6 @@ Imports:
     violets,
     regrets,
     Rdatasets,
-    Rdatasetspkg,
     cli
 Suggests: 
     testthat (>= 3.0.0)
