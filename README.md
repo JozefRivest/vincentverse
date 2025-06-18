@@ -10,7 +10,11 @@ The package has been made for fun, so it is not officially avaible through CRAN.
 Yet, you can easily use this function with the following code:
 
 ```r
-devtools::install_github("JozefRivest/vincentverse")
+# install from github
+library(remotes)
+install_github("JozefRivest/vincentverse")
+
+# load
 library(vincentverse)
 ```
 
