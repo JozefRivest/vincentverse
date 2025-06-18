@@ -79,25 +79,25 @@ print.vincentverse_conflicts <- function(x, ..., startup = FALSE) {
 }
 
 # #' @importFrom magrittr |>
-# confirm_conflict <- function(packages, name) {
-#   # Only look at functions
-#   objs <- packages |>
-#     purrr::map(~ get(name, pos = .)) |>
-#     purrr::keep(is.function)
-#
-#   if (length(objs) <= 1) {
-#     return()
-#   }
-#
-#   # Remove identical functions
-#   objs <- objs[!duplicated(objs)]
-#   packages <- packages[!duplicated(packages)]
-#   if (length(objs) == 1) {
-#     return()
-#   }
-#
-#   packages
-# }
+confirm_conflict <- function(packages, name) {
+  # Only look at functions
+  objs <- packages |>
+    purrr::map(~ get(name, pos = .)) |>
+    purrr::keep(is.function)
+
+  if (length(objs) <= 1) {
+    return()
+  }
+
+  # Remove identical functions
+  objs <- objs[!duplicated(objs)]
+  packages <- packages[!duplicated(packages)]
+  if (length(objs) == 1) {
+    return()
+  }
+
+  packages
+}
 
 ls_env <- function(env) {
   x <- ls(pos = env)
