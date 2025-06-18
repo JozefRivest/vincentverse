@@ -15,6 +15,18 @@ core <- c(
   "Rdatasetspkg"
 )
 
+#' Install missing vincentverse packages
+#' @export
+vincentverse_install <- function() {
+  missing <- core[!core %in% installed.packages()[,"Package"]]
+  if (length(missing) > 0) {
+    message("Installing missing packages: ", paste(missing, collapse = ", "))
+    install.packages(missing)
+  } else {
+    message("All vincentverse packages are already installed")
+  }
+}
+
 core_unloaded <- function() {
   search <- paste0("package:", core)
   core[!search %in% search()]
